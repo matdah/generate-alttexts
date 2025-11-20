@@ -17,7 +17,7 @@ Ett Node.js-verktyg som automatiskt genererar svenska alt-texter för bilder med
 npm install
 ```
 
-3. Skapa en `.env`-fil i projektets rot:
+3. Döp om `.env.example` till `.env` och lägg till din OpenAI API-nyckel:
 ```
 OPENAI_API_KEY=din-api-nyckel-här
 ```
