@@ -23,15 +23,15 @@ processImages();
 
 // Generera alt-texter för bilderna och logga resultaten
 async function processImages() {
-    console.log("Processing images for alt text generation...");
+    console.log("Processing images for text generation...");
     const altTexts = await generateAltTexts(imageFiles);
-    console.log("\n\n\nGenerated Alt Texts:");
+    console.log("\n\n\nGenerated Texts:");
     console.log(altTexts);
 
     // Skriv till en JSON-fil
     const outputPath = path.join(__dirname, 'alt_texts.json');
     fs.writeFileSync(outputPath, JSON.stringify(altTexts, null, 2));
-    console.log(`Alt texts written to ${outputPath}`);
+    console.log(`Texts written to ${outputPath}`);
 
     // Avsluta servern efter bearbetning
     process.exit(0);
@@ -39,7 +39,7 @@ async function processImages() {
 
 // Skicka bildfilerna till OpenAI för att generera alt-text
 async function generateAltTexts(imageArr) {
-    console.log("Generating alt texts for images..." + imageArr.join(", "));
+    console.log("Generating exts for images..." + imageArr.join(", "));
 
     // Skapa alla promises samtidigt
     const promises = imageArr.map(async (file) => {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bilder</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>AI-gen</h1>
+
+            <main>
+
+            </main>
+
+            <script>
+            // Fetch för alt_texts-.json och visa innehållet
+            
+            function loadData() {            
+                fetch('alt_texts.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const main = document.querySelector('main');
+                        data.forEach(item => {
+                            const section = document.createElement('section');
+                            const img = document.createElement('img');
+                            img.src = `images/${item.filename}`;
+                            img.alt = item.description || 'Ingen beskrivning tillgänglig';
+                            const p = document.createElement('p');
+                            p.textContent = item.description || 'Ingen beskrivning tillgänglig';
+                            section.appendChild(img);
+                            section.appendChild(p);
+                            main.appendChild(section);
+                        });
+                    })
+                    .catch(error => console.error('Error loading alt_texts.json:', error)); 
+        
+            }
+            loadData(); 
+        </script>
+        </div>
+    </body>
+</html>
