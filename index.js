@@ -59,14 +59,11 @@ async function generateAltTexts(imageArr) {
                         content: [
                             {
                                 type: "text",
-                                text: `Skapa en alt-text på svenska för denna bild. Alt-texten ska vara:
-- Så omfattande som möjligt, max 150 tecken
-- Fokusera på bildens syfte och viktiga innehåll
-- Undvik fraser som "en bild på" eller "foto av"
-- Beskriv vad som är relevant för förståelsen
-- Använd objektiv, tydlig svenska
-
-Svara endast med alt-texten, ingen annan text.`
+                                text: `Gör en detaljerad analys över vad bilden föreställer och ge en tydlig beskrivning.
+                                - Beskrivningen skall vara på svenska.
+                                - Beskriv tydligt vad bilden föreställer, hur många och vilka personer som är med, deras klädsel, bakgrund, miljö och eventuella känslor som förmedlas.
+                                - Gör en bedömning i kvalitet av bilden och nämn eventuella brister som suddighet, dålig belysning eller andra faktorer som påverkar bildens tydlighet.
+                                - I slutet av texten ge bilden ett betyg från 1-10 baserat på dess kvalitet och tydlighet.`
                             },
                             {
                                 type: "image_url",
@@ -75,7 +72,7 @@ Svara endast med alt-texten, ingen annan text.`
                         ]
                     }
                 ],
-                max_tokens: 100
+                max_tokens: 500
             });
 
             const altText = response.choices[0].message.content;
@@ -83,13 +80,13 @@ Svara endast med alt-texten, ingen annan text.`
 
             return {
                 filename: file,
-                altText: altText
+                description: altText
             };
         } catch (error) {
             console.error(`Error processing ${file}:`, error.message);
             return {
                 filename: file,
-                altText: null,
+                description: null,
                 error: error.message
             };
         }

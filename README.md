@@ -62,5 +62,10 @@ Filen `alt_texts.json` innehåller en lista med objekt:
 - sharp - Bildbehandling
 - dotenv - Miljövariabler
 
+## Branches
+Finns följande branches i repot:
+- Main - genererar alt-texter
+- Analys - skapar en detaljerad beskrivning av bilden, och ger den ett betyg från 1 - 10
+
 ## Av
 Mattias Dahlgren, 2025, mattias.dahlgren@miun.se
